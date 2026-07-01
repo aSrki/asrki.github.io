@@ -1,0 +1,28 @@
+remote_theme: "mmistakes/minimal-mistakes@4.26.2"
+minimal_mistakes_skin: "default"   
+
+title: "Srđan Apostolović"
+description: "Robotics engineer"
+url: "https://asrki.github.io"
+
+author:
+  name: "Srđan Apostolović"
+  bio: "Robotics and electronics engineer"
+  location: "Serbia"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/asrki"
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope"
+      url: "mailto:srki.apostolovic@gmail.com"
+
+plugins:
+  - jekyll-include-cache
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: single
+      author_profile: true
