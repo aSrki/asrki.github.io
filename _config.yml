@@ -8,6 +8,7 @@ url: "https://asrki.github.io"
 author:
   name: "Srđan Apostolović"
   bio: "Robotics and electronics engineer"
+  avatar: "/assets/imgs/Srdjan.jpg"
   location: "Serbia"
   links:
     - label: "GitHub"
