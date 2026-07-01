@@ -4,7 +4,7 @@ layout: single
 author_profile: true
 ---
 
-I'm a robotics engineer currently working on underactuated grippers
+I'm a robotics engineer working on robotic grippers and hands. Knowing me, my updates might lag a bit, but if you're interested in anything I'm working on, feel free to contact me!
 
 ## Education
 - BSc Mechatronics, robotics and automation, Faculty of technical sciences, University of Novi Sad, 2024
