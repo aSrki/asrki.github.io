@@ -11,3 +11,8 @@ I'm a robotics engineer currently working on underactuated grippers
 
 ## Skills
 MuJoCo, ROS2, Python, C
+
+## Publications
+**Classification of contact type based on the magnetic field data for tactile sensor**
+V. Sibinović, S. Apostolović, M. Raković
+*RAAD 2026 — Int. Conf. on Robotics in Alpe-Adria-Danube Region*
