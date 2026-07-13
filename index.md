@@ -13,7 +13,7 @@ Faculty of Technical Sciences, University of Novi Sad | 2020 - 2024
 Faculty of Technical Sciences, University of Novi Sad | 2024 – Present (Expected graduation: 2027)
 
 ## Skills
-MuJoCo, ROS2, Python, C
+MuJoCo, ROS2, Python, C, KiCad, OnShape
 
 ## Publications
 **Classification of contact type based on the magnetic field data for tactile sensor**
