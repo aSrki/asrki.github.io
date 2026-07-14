@@ -32,3 +32,14 @@ figure.third img,
   height: auto;
   object-fit: contain;
 }
+
+.author__avatar img,
+.page__hero .author__avatar img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  image-rendering: auto;
+  display: block;
+}
