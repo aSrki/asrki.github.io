@@ -72,7 +72,7 @@ figure.third img,
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
+  gap: 0;
   align-items: start;
 }
 
@@ -98,6 +98,6 @@ figure.third img,
 
 figure.half,
 figure.third {
-  justify-content: flex-start;  // or center
-  gap: 1.5rem;                  // keeps spacing between items
+  justify-content: flex-start;
+  gap: 0;
 }

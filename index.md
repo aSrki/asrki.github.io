@@ -18,7 +18,7 @@ gallery:
     alt: "Magnetic sensor"
 ---
 
-Welcome to my site!
+Welcome to my site!  
 Here are pictures of some of my ongoing/finished projects:
 
 {% include gallery%}
