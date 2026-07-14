@@ -12,3 +12,5 @@ gallery:
 ---
 
 Welcome to my site!
+
+{% include gallery caption="Some of my robotics projects."%}
