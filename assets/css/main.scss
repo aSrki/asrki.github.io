@@ -33,29 +33,6 @@ figure.third img,
   object-fit: contain;
 }
 
-.author__avatar,
-.page__hero .author__avatar {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  overflow: hidden;
-  display: block;
-}
-
-.author__avatar img,
-.page__hero .author__avatar img {
-  width: 100%;
-  height: 100%;
-  min-width: 180px;
-  min-height: 180px;
-  border-radius: 50% !important;
-  object-fit: cover;
-  object-position: center;
-  image-rendering: auto;
-  display: block;
-  aspect-ratio: 1 / 1;
-}
-
 .image-popup figcaption,
 .gallery figcaption,
 .gallery .gallery-caption,
