@@ -6,20 +6,29 @@
 @import "minimal-mistakes/skins/default";
 @import "minimal-mistakes";
 
-figure.half,
-figure.third {
+figure.half > a,
+figure.third > a,
+.gallery figure,
+.gallery-item,
+.gallery .image {
+  display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1em;
+  height: 250px;
+  overflow: hidden;
 }
 
-figure.half > a,
-figure.third > a {
-  width: auto !important;
-}
-
-.image-popup img {
-  height: 300px;
+figure.half img,
+figure.third img,
+.image-popup img,
+.gallery img,
+.gallery-item img,
+.gallery figure img,
+.gallery .image img {
+  display: block;
+  max-width: 100%;
+  max-height: 250px;
   width: auto;
+  height: auto;
   object-fit: contain;
 }
