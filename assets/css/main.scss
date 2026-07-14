@@ -13,3 +13,15 @@ figure.third img,
   width: 100%;
   object-fit: cover;
 }
+
+.gallery img,
+.gallery-item img,
+.gallery figure img,
+.gallery .image img,
+figure.half img,
+figure.third img,
+.image-popup img {
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+}
