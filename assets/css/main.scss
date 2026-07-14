@@ -86,38 +86,31 @@ figure.third img,
   object-fit: cover;
 }
 
-@media (max-width: 600px) {
+@media screen and (max-width: 767px) {
   .gallery {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0.75rem;
   }
 
-  .gallery figure,
-  figure.half,
-  figure.third {
+  .gallery figure {
     max-width: 100%;
     width: 100%;
-    margin: 0 auto 1rem;
+    margin: 0 0 1rem;
   }
 
-  figure.half > a,
-  figure.third > a,
-  .gallery figure > a,
-  .gallery-item > a {
-    width: 100%;
+  .gallery figure a,
+  .gallery figure img {
     display: block;
+    width: 100%;
+    max-width: 100%;
   }
 
-  .gallery figure img,
-  .gallery-item img,
-  figure.half img,
-  figure.third img {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    max-height: none !important;
-    object-fit: contain !important;
-    display: block !important;
+  .gallery figure img {
+    width: calc(100vw - 2rem);
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
   }
 }
 
