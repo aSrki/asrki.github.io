@@ -1,7 +1,13 @@
 Welcome to my site!
 
-
-<div style="display: flex; gap: 10px; flex-wrap: wrap;">
-  <img src="/imgs/HRC.jpg" alt="Three fingered robot hand" style="width: 32%;">
-  <img src="/imgs/RobotAssembly.png" alt="Custom robot arm" style="width: 32%;">
-</div>
+---
+title: "My Projects"
+permalink: /projects/
+gallery:
+  - url: /imgs/HRC.jpg
+    image_path: /imgs/HRC.jpg
+    alt: "Three fingered robotic hand"
+  - url: /imgs/RobotAssembly.png
+    image_path: /imgs/RobotAssembly.png
+    alt: "DIY Robot arm"
+---
