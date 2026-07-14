@@ -1,8 +1,5 @@
-Welcome to my site!
-
 ---
-title: "My Projects"
-permalink: /projects/
+title: "Home"
 gallery:
   - url: /imgs/HRC.jpg
     image_path: /imgs/HRC.jpg
@@ -11,3 +8,7 @@ gallery:
     image_path: /imgs/RobotAssembly.png
     alt: "DIY Robot arm"
 ---
+
+Welcome to my site!
+
+{% include gallery caption="Some of my robotics projects."%}
