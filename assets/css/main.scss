@@ -6,9 +6,10 @@
 @import "minimal-mistakes/skins/default";
 @import "minimal-mistakes";
 
-.gallery .image-popup img,
+figure.half img,
+figure.third img,
 .image-popup img {
-  height: 250px !important;
-  width: auto !important;
-  object-fit: cover !important;
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
 }
