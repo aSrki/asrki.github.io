@@ -13,4 +13,6 @@ gallery:
 
 Welcome to my site!
 
-{% include gallery caption="Some of my robotics projects."%}
+{% include gallery%}
+
+Here are pictures of some of my robotics project.
