@@ -18,6 +18,14 @@ figure.third > a,
   overflow: hidden;
 }
 
+figure.half > a,
+figure.third > a,
+.gallery figure > a,
+.gallery-item > a {
+  display: block;
+  width: 100%;
+}
+
 figure.half img,
 figure.third img,
 .image-popup img,
@@ -84,20 +92,32 @@ figure.third img,
     gap: 1rem;
   }
 
-  .gallery figure {
+  .gallery figure,
+  figure.half,
+  figure.third {
     max-width: 100%;
     width: 100%;
-    margin: 0 auto;
+    margin: 0 auto 1rem;
+  }
+
+  figure.half > a,
+  figure.third > a,
+  .gallery figure > a,
+  .gallery-item > a {
+    width: 100%;
+    display: block;
   }
 
   .gallery figure img,
-  .gallery-item img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    max-height: none;
-    object-fit: contain;
-    display: block;
+  .gallery-item img,
+  figure.half img,
+  figure.third img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    display: block !important;
   }
 }
 
