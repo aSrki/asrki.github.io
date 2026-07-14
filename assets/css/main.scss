@@ -80,13 +80,16 @@ figure.third img,
   .gallery figure {
     max-width: 100%;
     width: 100%;
+    margin: 0 auto;
   }
 
   .gallery img {
     width: 100%;
+    max-width: 100%;
     height: auto;
     max-height: none;
     object-fit: contain;
+    display: block;
   }
 }
 
