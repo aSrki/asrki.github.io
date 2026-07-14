@@ -8,7 +8,7 @@ gallery:
   - url: /imgs/RobotAssembly.png
     image_path: /imgs/RobotAssembly.png
     alt: "DIY Robot arm"
-    title: "DIY Robot arm"
+    title: "DIY robot arm assembly"
 ---
 
 Welcome to my site!

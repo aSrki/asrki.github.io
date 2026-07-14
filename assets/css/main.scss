@@ -56,6 +56,14 @@ figure.third img,
   aspect-ratio: 1 / 1;
 }
 
-.image-popup figcaption {
+.image-popup figcaption,
+.gallery figcaption,
+.gallery .gallery-caption,
+.gallery-item__caption {
   text-align: center;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: normal;
+  font-weight: inherit;
+  color: inherit;
 }
