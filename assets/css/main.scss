@@ -49,7 +49,7 @@ figure.third img,
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 0;
+  gap: 1rem;
   align-items: start;
 }
 
@@ -58,14 +58,17 @@ figure.third img,
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 280px;
+  justify-self: center;
 }
 
 .gallery img {
   display: block;
   width: 100%;
-  height: auto;
-  max-height: 250px;
-  object-fit: contain;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 6px;
 }
 
 .gallery figcaption {
