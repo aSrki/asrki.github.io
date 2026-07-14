@@ -95,3 +95,9 @@ figure.third img,
   margin-top: 0.5rem;
   text-align: center;
 }
+
+figure.half,
+figure.third {
+  justify-content: flex-start;  // or center
+  gap: 1.5rem;                  // keeps spacing between items
+}

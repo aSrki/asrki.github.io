@@ -19,7 +19,8 @@ gallery:
 ---
 
 Welcome to my site!
+Here are pictures of some of my ongoing/finished projects:
 
 {% include gallery%}
 
-Here are pictures of some of my robotics project.
+If you found anything interesting feel free to contact me 😀
