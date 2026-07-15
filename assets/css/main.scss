@@ -78,35 +78,3 @@ figure.third {
   justify-content: flex-start;
   gap: 0;
 }
-
-@media (max-width: 650px) {
-  .page__content img {
-    display: block;
-    width: 100%;
-    // max-width: 100%;
-    height: auto;
-    margin: 0 auto;
-  }
-
-  .gallery {
-    grid-template-columns: 1fr;
-  }
-
-  figure.half > a,
-  figure.third > a {
-    width: 100%;
-  }
-
-  figure.half img,
-  figure.third img,
-  .image-popup img,
-  .gallery img,
-  .gallery-item img,
-  .gallery figure img,
-  .gallery .image img {
-    width: 100%;
-    // max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
