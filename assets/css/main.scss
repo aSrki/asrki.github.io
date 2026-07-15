@@ -92,6 +92,11 @@ figure.third {
     grid-template-columns: 1fr;
   }
 
+  figure.half > a,
+  figure.third > a {
+    width: 100%;
+  }
+
   figure.half img,
   figure.third img,
   .image-popup img,
