@@ -20,7 +20,7 @@
   object-fit: contain;
 }
 
-/* Desktop: real 3-column grid, every tile the same height (image cropped to fill) */
+/* Desktop: real 3-column grid, every tile the same height, full image visible (no cropping) */
 @media (min-width: 37.5em) {
   .page__content figure.third {
     grid-template-columns: repeat(3, 1fr);
@@ -29,9 +29,7 @@
   .page__content figure.third > a {
     width: 100%;
     max-width: none;
-  }
-
-  .page__content figure.third img {
-    object-fit: cover;
+    height: auto;
+    aspect-ratio: 4 / 3;
   }
 }
