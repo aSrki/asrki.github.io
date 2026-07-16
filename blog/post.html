@@ -10,18 +10,13 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Home - Srki's website</title>
+    <title id="doc-title">Blog - Srki's website</title>
     <meta name="description" content="Robotics engineer">
     <meta name="author" content="Srđan Apostolović">
 
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Srki's website">
-    <meta property="og:title" content="Home">
-    <meta property="og:url" content="https://asrki.github.io/">
-    <meta property="og:description" content="Robotics engineer">
-
-    <link rel="canonical" href="https://asrki.github.io/">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -74,7 +69,7 @@
     </div>
 
     <div class="initial-content">
-      <div id="main" role="main" class="wide">
+      <div id="main" role="main">
 
         <div class="sidebar sticky">
           <div itemscope itemtype="https://schema.org/Person" class="h-card">
@@ -108,41 +103,17 @@
         </div>
 
         <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-          <meta itemprop="headline" content="Home">
-
           <div class="page__inner-wrap">
             <header>
-              <h1 id="page-title" class="page__title" itemprop="headline">
-                <a href="https://asrki.github.io/" itemprop="url">Home</a>
-              </h1>
+              <h1 id="page-title" class="page__title">Loading…</h1>
+              <p class="page__meta" id="post-date"></p>
             </header>
 
-            <section class="page__content" itemprop="text">
-              <p>Welcome to my site!<br>
-              Here are pictures of some of my ongoing/finished projects:</p>
+            <section class="page__content" itemprop="text" id="post-content"></section>
 
-              <figure class="third">
-                <a href="/imgs/HRC.jpg">
-                  <img src="/imgs/HRC.jpg" alt="Three fingered robotic hand">
-                </a>
-                <a href="/imgs/RobotAssembly.png">
-                  <img src="/imgs/RobotAssembly.png" alt="DIY Robot arm">
-                </a>
-                <a href="/imgs/DeltaRobot.png">
-                  <img src="/imgs/DeltaRobot.png" alt="Delta robot Jacobian ML">
-                </a>
-                <a href="/imgs/Finger.png">
-                  <img src="/imgs/Finger.png" alt="Robot Finger">
-                </a>
-                <a href="/imgs/mag_sense_assm.png">
-                  <img src="/imgs/mag_sense_assm.png" alt="Magnetic sensor">
-                </a>
-              </figure>
-
-              <p>If you found anything interesting feel free to contact me 😀</p>
-            </section>
-
-            <footer class="page__meta"></footer>
+            <footer class="page__meta">
+              <p><a href="/blog/">&larr; Back to all posts</a></p>
+            </footer>
           </div>
         </article>
       </div>
@@ -155,5 +126,58 @@
     </div>
 
     <script src="/assets/js/main.min.js"></script>
+    <script>
+      function escapeHtml(str) {
+        var div = document.createElement('div');
+        div.textContent = str == null ? '' : str;
+        return div.innerHTML;
+      }
+
+      var slug = new URLSearchParams(location.search).get('slug');
+      var titleEl = document.getElementById('page-title');
+      var dateEl = document.getElementById('post-date');
+      var contentEl = document.getElementById('post-content');
+
+      if (!slug) {
+        titleEl.textContent = 'Post not found';
+        contentEl.textContent = 'No post was specified.';
+      } else {
+        fetch('/blog/posts.json')
+          .then(function (r) { return r.json(); })
+          .then(function (posts) {
+            var post = posts.find(function (p) { return p.slug === slug; });
+
+            if (!post) {
+              titleEl.textContent = 'Post not found';
+              contentEl.textContent = 'That post doesn\'t exist (it may have been removed).';
+              return;
+            }
+
+            document.getElementById('doc-title').textContent = post.title + ' - Srki\'s website';
+            titleEl.textContent = post.title;
+            dateEl.textContent = post.date;
+
+            var paragraphs = (post.text || '')
+              .split(/\n\s*\n/)
+              .map(function (block) { return '<p>' + escapeHtml(block).replace(/\n/g, '<br>') + '</p>'; })
+              .join('');
+
+            var imagesHtml = '';
+            if (post.images && post.images.length) {
+              imagesHtml = '<figure class="third">' +
+                post.images.map(function (img) {
+                  return '<a href="' + img.src + '"><img src="' + img.src + '" alt="' + escapeHtml(img.alt || '') + '"></a>';
+                }).join('') +
+                '</figure>';
+            }
+
+            contentEl.innerHTML = paragraphs + imagesHtml;
+          })
+          .catch(function () {
+            titleEl.textContent = 'Post not found';
+            contentEl.textContent = 'Could not load posts.';
+          });
+      }
+    </script>
   </body>
 </html>

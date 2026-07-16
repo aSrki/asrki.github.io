@@ -10,18 +10,18 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Home - Srki's website</title>
+    <title>Blog - Srki's website</title>
     <meta name="description" content="Robotics engineer">
     <meta name="author" content="Srđan Apostolović">
 
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Srki's website">
-    <meta property="og:title" content="Home">
-    <meta property="og:url" content="https://asrki.github.io/">
+    <meta property="og:title" content="Blog">
+    <meta property="og:url" content="https://asrki.github.io/blog/">
     <meta property="og:description" content="Robotics engineer">
 
-    <link rel="canonical" href="https://asrki.github.io/">
+    <link rel="canonical" href="https://asrki.github.io/blog/">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -74,7 +74,7 @@
     </div>
 
     <div class="initial-content">
-      <div id="main" role="main" class="wide">
+      <div id="main" role="main">
 
         <div class="sidebar sticky">
           <div itemscope itemtype="https://schema.org/Person" class="h-card">
@@ -108,41 +108,20 @@
         </div>
 
         <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-          <meta itemprop="headline" content="Home">
+          <meta itemprop="headline" content="Blog">
 
           <div class="page__inner-wrap">
             <header>
-              <h1 id="page-title" class="page__title" itemprop="headline">
-                <a href="https://asrki.github.io/" itemprop="url">Home</a>
-              </h1>
+              <h1 id="page-title" class="page__title" itemprop="headline">Blog</h1>
             </header>
 
             <section class="page__content" itemprop="text">
-              <p>Welcome to my site!<br>
-              Here are pictures of some of my ongoing/finished projects:</p>
-
-              <figure class="third">
-                <a href="/imgs/HRC.jpg">
-                  <img src="/imgs/HRC.jpg" alt="Three fingered robotic hand">
-                </a>
-                <a href="/imgs/RobotAssembly.png">
-                  <img src="/imgs/RobotAssembly.png" alt="DIY Robot arm">
-                </a>
-                <a href="/imgs/DeltaRobot.png">
-                  <img src="/imgs/DeltaRobot.png" alt="Delta robot Jacobian ML">
-                </a>
-                <a href="/imgs/Finger.png">
-                  <img src="/imgs/Finger.png" alt="Robot Finger">
-                </a>
-                <a href="/imgs/mag_sense_assm.png">
-                  <img src="/imgs/mag_sense_assm.png" alt="Magnetic sensor">
-                </a>
-              </figure>
-
-              <p>If you found anything interesting feel free to contact me 😀</p>
+              <div id="post-list">Loading posts…</div>
             </section>
 
-            <footer class="page__meta"></footer>
+            <footer class="page__meta">
+              <p class="blog-admin-link"><a href="/blog/admin.html">Manage posts</a></p>
+            </footer>
           </div>
         </article>
       </div>
@@ -155,5 +134,45 @@
     </div>
 
     <script src="/assets/js/main.min.js"></script>
+    <script>
+      function escapeHtml(str) {
+        var div = document.createElement('div');
+        div.textContent = str == null ? '' : str;
+        return div.innerHTML;
+      }
+
+      fetch('/blog/posts.json')
+        .then(function (r) { return r.json(); })
+        .then(function (posts) {
+          posts = posts.slice().sort(function (a, b) { return new Date(b.date) - new Date(a.date); });
+          var list = document.getElementById('post-list');
+
+          if (!posts.length) {
+            list.textContent = 'No posts yet.';
+            return;
+          }
+
+          list.innerHTML = posts.map(function (p) {
+            var text = p.text || '';
+            var flat = text.replace(/\s+/g, ' ').trim();
+            var excerpt = flat.slice(0, 160) + (flat.length > 160 ? '…' : '');
+            var thumb = (p.images && p.images[0])
+              ? '<div class="blog-list-thumb"><img src="' + p.images[0].src + '" alt="' + escapeHtml(p.images[0].alt || '') + '"></div>'
+              : '';
+
+            return '<article class="blog-list-item">' +
+                thumb +
+                '<div class="blog-list-body">' +
+                  '<h2><a href="/blog/post.html?slug=' + encodeURIComponent(p.slug) + '">' + escapeHtml(p.title) + '</a></h2>' +
+                  '<p class="blog-list-date">' + escapeHtml(p.date) + '</p>' +
+                  '<p>' + escapeHtml(excerpt) + '</p>' +
+                '</div>' +
+              '</article>';
+          }).join('');
+        })
+        .catch(function () {
+          document.getElementById('post-list').textContent = 'Could not load posts.';
+        });
+    </script>
   </body>
 </html>
