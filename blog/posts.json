@@ -1,9 +1,9 @@
 [
   {
-    "slug": "welcome",
-    "title": "Welcome to my blog",
+    "slug": "first-post",
+    "title": "First post",
     "date": "2026-07-16",
-    "text": "This is the first post on my new blog. I'll be sharing updates on my robotics projects here — progress notes, photos, and things I've learned along the way.\n\nStay tuned!",
+    "text": "This is my first blog post, i do not know if I will actualy use this but i think of it as a really funny idea.",
     "images": []
   }
 ]
